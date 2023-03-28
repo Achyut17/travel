@@ -1,15 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './main.css'
-import img from '../../assets/img (1).jpg'
-import img2 from '../../assets/img (2).jpg'
-import img3 from '../../assets/img (3).jpg'
-import img4 from '../../assets/img (4).jpg'
-import img5 from '../../assets/img (5).jpg'
-import img6 from '../../assets/img (6).jpg'
-import img7 from '../../assets/img (7).jpg'
-import img8 from '../../assets/img (8).jpg'
-import img9 from '../../assets/img (9).jpg'
-import img10 from '../../assets/img (10).jpg'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
 import api from '../../api/card'
