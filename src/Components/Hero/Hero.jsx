@@ -1,44 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import './main.css'
-import img from '../../assets/img (1).jpg'
-import img2 from '../../assets/img (2).jpg'
-import img3 from '../../assets/img (3).jpg'
-import img4 from '../../assets/img (4).jpg'
-import img5 from '../../assets/img (5).jpg'
-import img6 from '../../assets/img (6).jpg'
-import img7 from '../../assets/img (7).jpg'
-import img8 from '../../assets/img (8).jpg'
-import img9 from '../../assets/img (9).jpg'
-import img10 from '../../assets/img (10).jpg'
+import api from '../../api/card'
+import './Hero.css'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
-import api from '../../api/card'
-
-import Aos from 'aos';
+import Aos from 'aos'
 import 'aos/dist/aos.css'
 
-const Main = () => {
+const Hero = () => {
   const [data, setData] = useState([])
 
-  const retrieve = async() => {
-    const response = await api.get("/Data").catch((err)=>console.log(err.message))
+  const retrieve = async () => {
+    const response = await api.get("/Data").catch((err) => console.log(err.message))
     return response.data
   }
 
-  useEffect(()=>{
-    Aos.init({duration:2000})
-    const get = async() => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 })
+    const get = async () => {
       const allData = await retrieve();
-      if(allData) setData(allData);
+      if (allData) {
+        const mostData = allData.slice(0, 3)
+        setData(mostData)
+        console.log(mostData);
+      }
     }
     get()
-  },[])
+  }, [])
 
   return (
     <section className="main container section" id='packages'>
       <div className="secTitle">
         <h3 data-aos='fade-right' className="title">
-          All Destinations
+          Most Traveled Destinations
         </h3>
       </div>
       <div className="secContent grid">
@@ -79,4 +72,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Hero
